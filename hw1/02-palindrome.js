@@ -15,7 +15,7 @@ function handleInput(event) {
   }
   
   out.textContent = output;
-  if(pass){
+  if (pass){
     out.style.color = 'green';
   } else {
     out.style.color = 'red';
