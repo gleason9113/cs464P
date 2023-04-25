@@ -7,7 +7,7 @@ form.addEventListener('submit', function (event) {
     const email = event.target.elements.email.value
     const menu = event.target.elements.regMenu.value
     //Make an array of checkboxes, filter for checked boxes, map to get the value.
-    const courses = Array.from(event.target.elements.courses)
+    let courses = Array.from(event.target.elements.courses)
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value)
     //If no courses are selected, set the courses variable to a string.
@@ -15,7 +15,7 @@ form.addEventListener('submit', function (event) {
         courses = `None selected!`
     }
     //Get the comments value, if it's empty, set the comments variable to a string.
-    const comments = event.target.elements.comments.value
+    let comments = event.target.elements.comments.value
     if (comments.length < 1) {
         comments = `No comments entered.`
     }
