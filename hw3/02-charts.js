@@ -29,6 +29,42 @@ const borderColors = [
 // url for the Thrones API
 const url = 'https://thronesapi.com/api/v2/Characters';
 
+const houseLabels = {
+  "House Targaryen": 0,
+  "House Tarly": 0,
+  "House Stark": 0,
+  "House Baratheon": 0,
+  "House Lannister": 0,
+  "House Greyjoy": 0,
+  "House Clegane": 0,
+  "House Baelish": 0,
+  "House Seaworth": 0,
+  "Unknown": 0,
+  "House Tyrell": 0,
+  "Other" : 0
+}
+
+let houses = []
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        data.forEach(character => {
+          if(!houses.includes(character.family)) {
+            houses.push(character.family);
+          }
+        })
+        console.log(houses);
+        for(let i = 0; i < houses.length; i++){
+          const toMatch = houses[i];
+          for (let key in houseLabels) {
+            if (key.includes(toMatch)) {
+              houseLabels[key] += 1;
+            }
+          }
+        }
+        console.log(houseLabels);
+      });
 const renderChart = () => {
   const donutChart = document.querySelector('.donut-chart');
 
