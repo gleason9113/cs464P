@@ -19,7 +19,7 @@ fetch(url)
             card.innerHTML = `
             <img src="${image}" alt="${name}">
             <h2>${name}</h2>
-            <h3>${title}</h3>
+            <h4>${title}</h4>
             `
             flexbox.appendChild(card);
         })
