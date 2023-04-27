@@ -17,3 +17,23 @@ h1 {
   border-radius: 0.8rem;
   background-color: var(--white);
 }
+
+#cardbox {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: var(--cyan);
+  border-color: var(--cyan);
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+.card:hover {
+  background-color: var(--blue);
+  color: var(--white)
+}
