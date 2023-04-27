@@ -1,20 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>05 - Form</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <script defer src="05-form.js"></script>
-  </head>
-  <body>
-    <main>
-      <form>
-        <h1>Exercise 05 - Form</h1>
-      </form>
-    </main>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>05 - Form</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        />
+        <script defer src="05-form.js"></script>
+    </head>
+    <body class="bg-dark">
+        <main>
+            <div class="container bg-white mt-5 p-3 rounded w-50" style="max-width: 600px">
+                <form id="hwForm">
+                    <h1 class="text-center">Exercise 05 - Form</h1>
+                    <div class="form-group my-3">
+                        <label for="nameField" class="form-label fw-bold">Full Name:</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            id="nameField"
+                            required
+                        />
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="emailField" class="form-label fw-bold">Email:</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            id="emailField"
+                            required
+                        />
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="regMenu" class="form-label w-100 fw-bold"
+                            >Registration Status:</label
+                        >
+                        <select
+                            name="regMenu"
+                            id="regMenu"
+                            class="w-100 rounded"
+                            style="border: 1px solid #a6a6a6"
+                            required
+                        >
+                            <option value="none" disabled selected>Choose an Option</option>
+                            <option value="Registered">Registered</option>
+                            <option value="Waitlisted">Waitlisted</option>
+                            <option value="Dropped">Dropped</option>
+                        </select>
+                    </div>
+                    <fieldset>
+                      <p class="my-3 fw-bold">Have you taken any of the following courses?</p>
+                      <div class="form-check mt-3 mb-1">
+                          <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value="Programming Languages"
+                              name="courses"
+                              id="languages"
+                          />
+                          <label class="form-check-label" for="languages"
+                              >Programming Languages</label
+                          >
+                      </div>
+                      <div class="form-check my-1">
+                          <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value="Operating Systems"
+                              name="courses"
+                              id="os"
+                          />
+                          <label class="form-check-label" for="os">Operating Systems</label>
+                      </div>
+                      <div class="form-check mt-1 mb-3">
+                          <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value="Full Stack Web Development"
+                              name="courses"
+                              id="fullstack"
+                          />
+                          <label class="form-check-label" for="fullstack"
+                              >Full Stack Web Development</label
+                          >
+                      </div>
+                    </fieldset>
+                    <div class="form-group my-3">
+                        <label for="comments" class="form-label fw-bold">Anything else?</label>
+                        <textarea
+                            class="form-control"
+                            name="comments"
+                            id="comments"
+                            rows="3"
+                        ></textarea>
+                    </div>
+                    <div class="form-group mt-1 mb-3 text-center row w-100">
+                        <div class="col-1"></div>
+                        <input class="btn btn-primary col-5 mx-1" type="submit" value="Submit" />
+                        <input class="btn btn-secondary col-5 mx-1" type="reset" value="Reset" />
+                        <div class="col-1"></div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
 </html>
