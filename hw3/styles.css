@@ -22,18 +22,35 @@ h1 {
   display: inline-flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card {
   background-color: var(--cyan);
   border-color: var(--cyan);
   padding: 10px;
-  margin: 10px;
+  margin: 0px;
   width: 200px;
+}
+
+.card-img-top {
+  width: 178px;
+  height: 178px;
+  object-fit: cover;
 }
 
 .card:hover {
   background-color: var(--blue);
   color: var(--white)
+}
+
+h2, h4, p {
+  width: 90%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.img-holder {
+  width: 100px;
+  height: 100px;
 }

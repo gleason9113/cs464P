@@ -15,11 +15,11 @@ fetch(url)
             const image = imageURL + `${character.image}`;
             //Create card element
             const card = document.createElement('div');
-            card.classList.add('card');
+            card.classList.add('card', 'align-items-center', 'mx-auto');
             card.innerHTML = `
-            <img src="${image}" alt="${name}">
-            <h2>${name}</h2>
-            <h4>${title}</h4>
+            <img src="${image}" alt="${name}" class="card-img-top mb-3">
+            <p><strong>${name}</strong></h2>
+            <p>${title}</p>
             `
             flexbox.appendChild(card);
         })

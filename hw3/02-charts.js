@@ -71,11 +71,11 @@ const renderChart = () => {
   new Chart(donutChart, {
     type: 'doughnut',
     data: {
-      labels: ['label', 'label', 'label', 'label'],
+      labels: Array.from(houseLabels.keys()),
       datasets: [
         {
-          label: 'My First Dataset',
-          data: [1, 12, 33, 5],
+          label: 'GoT Houses',
+          data: Array.from(houseLabels.values()),
           backgroundColor: backgroundColors,
           borderColor: borderColors,
           borderWidth: 1,
