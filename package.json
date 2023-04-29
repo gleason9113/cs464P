@@ -1,7 +1,8 @@
 {
   "devDependencies": {
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -13,5 +14,15 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "sass": "^1.62.0"
-  }
+  },
+  "name": "cs464p",
+  "description": "In this repository, you will find the starter files for the CS 464P/564: Front End Web Technologies homework assignments.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
