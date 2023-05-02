@@ -6,10 +6,20 @@ export default function Search() {
   const [ data, setData ] = useState([]); //Store the data from the API
   const [ cards, setCards ] = useState([]); //Store the cards to display
 
-  const url = 'https://thronesapi.com/api/v2/Characters';
-  const imageURL = 'https://thronesapi.com/assets/images/';
+  const url = 'https://thronesapi.com/api/v2/Characters'; //API url
+  const imageURL = 'https://thronesapi.com/assets/images/'; //Image URL string
   
-
+  //Get API data- Move this up and pass prop down to components?  
+  useEffect(() => {
+    fetch(url) 
+      .then((response) => response.json())
+      .then((data) => {
+    // eslint-disable-next-line no-console
+        setData(data);
+        console.log(data);    
+      })
+  } , []); 
+  //Issue:  1st time name is searched for, nothing happens - have to click Submit 2x; why?
   const onSubmit = (event) => {
     //Get and set the name to search for
     event.preventDefault();
@@ -47,15 +57,7 @@ export default function Search() {
   //Set the cards to display
   setCards(cardElements);
   }
-  useEffect(() => {
-    fetch(url) 
-      .then((response) => response.json())
-      .then((data) => {
-    // eslint-disable-next-line no-console
-        setData(data);
-        console.log(data);    
-      })
-  } , []); 
+  
 
   return (
     <div className="container">
