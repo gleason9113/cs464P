@@ -50,3 +50,37 @@ li a:hover {
 button {
   margin: 5px auto;
 }
+
+.card {
+  margin: 15px auto;
+  text-align: center;
+  background-color: rgb(80, 80, 82);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: white;
+  width: 200px;
+  height: 375px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-img {
+  max-width: 100px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.card-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+}
+
+label {
+  margin: 5px 5px
+}
