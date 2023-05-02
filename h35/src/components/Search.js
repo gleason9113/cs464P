@@ -1,24 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
-export default function Search() {
+export default function Search({ data }) {
   const [ name, setName ] = useState(null); //Store the name to search for
-  const [ data, setData ] = useState([]); //Store the data from the API
   const [ cards, setCards ] = useState([]); //Store the cards to display
 
-  const url = 'https://thronesapi.com/api/v2/Characters'; //API url
   const imageURL = 'https://thronesapi.com/assets/images/'; //Image URL string
   
-  //Get API data- Move this up and pass prop down to components?  
-  useEffect(() => {
-    fetch(url) 
-      .then((response) => response.json())
-      .then((data) => {
-    // eslint-disable-next-line no-console
-        setData(data);
-        console.log(data);    
-      })
-  } , []); 
   //Issue:  1st time name is searched for, nothing happens - have to click Submit 2x; why?
   const onSubmit = (event) => {
     //Get and set the name to search for
