@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-export default function Visual({ charData }) {
-  const { counts, setCounts } = useState({ //Store the counts of each house
+export default function Visual({ data }) {
+  const [ counts, setCounts ] = useState({ //Store the counts of each house
     "House Targaryen": 0,
     "House Tarly": 0,
     "House Stark": 0,
@@ -19,7 +19,7 @@ export default function Visual({ charData }) {
     "Other" : 0
   });
 
-  const { chart, setChart } = useState(null); //Store the chart data
+  const [ chart, setChart ] = useState(null); //Store the chart data
   
 
   const backgroundColors = [
@@ -29,11 +29,11 @@ export default function Visual({ charData }) {
     'rgba(75, 192, 192, 0.8)',
     'rgba(153, 102, 255, 0.8)',
     'rgba(255, 159, 64, 0.8)',
-    'rgba(199, 199, 199, 0.8)',
+    'rgba(199, 81, 199, 0.8)',
     'rgba(83, 102, 255, 0.8)',
     'rgba(40, 159, 64, 0.8)',
-    'rgba(210, 199, 199, 0.8)',
-    'rgba(78, 52, 199, 0.8)',
+    'rgba(111, 199, 36, 0.8)',
+    'rgba(144, 52, 199, 0.8)',
   ];
 
   const borderColors = [
@@ -51,9 +51,9 @@ export default function Visual({ charData }) {
   ];
 
 //Generate an array of houses from character data
-  function getHouseData(charData) {
+  function getHouseData(data) {
     const houses = [];
-    charData.forEach((char) => { //Here charData is undefined?  
+    data.forEach((char) => { //Here charData is undefined?  
       if (char.family) {
         houses.push(char.family);
       }
@@ -64,6 +64,7 @@ export default function Visual({ charData }) {
   //Use partial string matches to count houses with multiple spellings
   //Return an object with the counts
   function getHouseCounts(charData) {
+    console.log("Called!");
     const houses = getHouseData(charData);
     const newCount = counts;
     //Ugly but functional
@@ -71,27 +72,27 @@ export default function Visual({ charData }) {
     //Use includes() (partial match) to count houses with multiple spellings
     for(let i = 0; i < houses.length; i++){
      if (houses[i].includes("Targ")) {
-      counts["House Targaryen"] += 1;
+      newCount["House Targaryen"] += 1;
     } else if (houses[i].includes("Tarly")) {
-      counts["House Tarly"] += 1;
+      newCount["House Tarly"] += 1;
     } else if (houses[i].includes("Stark")) {
-      counts["House Stark"] += 1;
+      newCount["House Stark"] += 1;
     } else if (houses[i].includes("Barath")) {
-      counts["House Baratheon"] += 1;
+      newCount["House Baratheon"] += 1;
     } else if (houses[i].includes("ister")) {
-      counts["House Lannister"] += 1;
+      newCount["House Lannister"] += 1;
     } else if (houses[i].includes("Grey")) {
-      counts["House Greyjoy"] += 1;
+      newCount["House Greyjoy"] += 1;
     } else if (houses[i].includes("Cleg")) {
-      counts["House Clegane"] += 1;
+      newCount["House Clegane"] += 1;
     } else if (houses[i].includes("Bael")) {
-      counts["House Baelish"] += 1;
+      newCount["House Baelish"] += 1;
     } else if (houses[i].includes("Seaw")) {
-      counts["House Seaworth"] += 1;
+      newCount["House Seaworth"] += 1;
     } else if (houses[i].includes("Tyrell")) {
-      counts["House Tyrell"] += 1;
+      newCount["House Tyrell"] += 1;
     } else {
-      counts["Other"] += 1;
+      newCount["Other"] += 1;
     }
   }
     
@@ -117,14 +118,30 @@ export default function Visual({ charData }) {
   }
 
   useEffect(() => {
-    getHouseCounts(charData);
-  }); 
+    getHouseCounts(data);
+  }, [data]); 
 
   return (
     <div>
-      <h1>Visual!</h1>
       <div className="container">
-        {chart && <Doughnut data={chart} />}
+        {chart && (
+          <Doughnut 
+            data={chart} 
+            options={{
+              responsive: true,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "House Counts",
+                  font: {
+                    size: 18,
+                },
+                padding: 10,
+              },
+            },
+            }}
+            />
+          )}
       </div>
     </div>
   )
