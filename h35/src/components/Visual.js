@@ -53,7 +53,7 @@ export default function Visual({ data }) {
 //Generate an array of houses from character data
   function getHouseData(data) {
     const houses = [];
-    data.forEach((char) => { //Here charData is undefined?  
+    data.forEach((char) => { //Loop through each character 
       if (char.family) {
         houses.push(char.family);
       }

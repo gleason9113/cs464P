@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 export default function Search({ data }) {
   const [ name, setName ] = useState(null); //Store the name to search for
   const [ cards, setCards ] = useState([]); //Store the cards to display
