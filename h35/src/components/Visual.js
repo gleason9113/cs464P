@@ -53,7 +53,7 @@ export default function Visual({ charData }) {
 
   function getHouseData(charData) {
     const houses = [];
-    charData.forEach((char) => {
+    charData.forEach((char) => { //Here charData is undefined?  
       if (char.family) {
         houses.push(char.family);
       }
@@ -118,10 +118,10 @@ export default function Visual({ charData }) {
 
   useEffect(() => {
     getHouseCounts(charData);
-  }, [charData]);
+  }); 
 
   return (
-    <div className="container mx-auto align-items-center">
+    <div>
       <h1>Visual!</h1>
       <div className="container">
         {chart && <Doughnut data={chart} />}
