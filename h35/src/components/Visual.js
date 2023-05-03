@@ -95,13 +95,10 @@ export default function Visual({ data }) {
       newCount["Other"] += 1;
     }
   }
-    
-    console.log(houses);
     setCounts(newCount);
-    console.log(counts);
     setChartData(counts);
   }
-
+  //Set the chart data
   function setChartData(counts) {
     setChart({
       labels: Object.keys(counts),
@@ -116,10 +113,10 @@ export default function Visual({ data }) {
       ],
     });
   }
-
+  //Call getHouseCounts only when data changes, which should be never.
   useEffect(() => {
     getHouseCounts(data);
-  }, [data]); 
+  }, [data]);  //This line has a warning about a missing dependency, but changing it breaks the app.  Why?
 
   return (
     <div>

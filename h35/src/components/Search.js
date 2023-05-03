@@ -21,30 +21,36 @@ export default function Search({ data }) {
           results.push(char);
           console.log(char);
         }
-      })
+      }) 
     }
+
     //Create a JSX element for each result
     //And add it to an array
-    const cardElements = results.map((char) => {
-      const name = char.fullName;
-      const title = char.title;
-      const image = `${imageURL}${char.image}`;
-      
-      return (
-        <div key={char.id} className="card">
-          <img src={image} width={250} height={250} alt={`This is ${name}`} className="char-img" />
-          <p>
-            <strong>{name}</strong>
-          </p>
-          <p>
-            {title}
-          </p>
-        </div>
-      );
-    });
-  //Set the cards to display
-  setCards(cardElements);
+    if (results.length === 0) {
+      setCards(<p>Character not found!  Try again!</p>);
+    } else {
+      const cardElements = results.map((char) => {
+        const name = char.fullName;
+        const title = char.title;
+        const image = `${imageURL}${char.image}`;
+        
+        return (
+          <div key={char.id} className="card">
+            <img src={image} width={200} height={200} alt={`This is ${name}`} className="char-img" />
+            <p>
+              <strong>{name}</strong>
+            </p>
+            <p>
+              {title}
+            </p>
+          </div>
+        );
+      });
+    //Set the cards to display
+    setCards(cardElements);
+    }
   }
+    
   
 
   return (
