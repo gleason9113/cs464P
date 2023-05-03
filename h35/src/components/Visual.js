@@ -20,7 +20,7 @@ export default function Visual({ charData }) {
   });
 
   const { chart, setChart } = useState(null); //Store the chart data
-  //Generate an array of houses from character data
+  
 
   const backgroundColors = [
     'rgba(54, 162, 235, 0.8)',
@@ -50,7 +50,7 @@ export default function Visual({ charData }) {
     'rgba(78, 52, 199, 1)',
   ];
 
-
+//Generate an array of houses from character data
   function getHouseData(charData) {
     const houses = [];
     charData.forEach((char) => { //Here charData is undefined?  
