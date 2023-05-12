@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 export default function Search({ data }) {
-  const [ name, setName ] = useState(null); //Store the name to search for
   const [ cards, setCards ] = useState([]); //Store the cards to display
 
   const imageURL = 'https://thronesapi.com/assets/images/'; //Image URL string
@@ -11,12 +10,11 @@ export default function Search({ data }) {
     //Get and set the name to search for
     event.preventDefault();
     const results = [];
-    const target = event.target.charName.value;
-    setName(target);
+    const target = event.target.charName.value.toLowerCase();
     //Search the data for full and partial matches in the fullName field
-    if(name) {
+    if(target) {
       data.forEach((char) => {
-        if (char.fullName.includes(name)) {
+        if (char.fullName.toLowerCase().includes(target)) {
           results.push(char);
           console.log(char);
         }
