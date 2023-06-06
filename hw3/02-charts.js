@@ -63,7 +63,7 @@ fetch(url)
             }
           }
         }
-        console.log(houseLabels);
+        renderChart();
       });
 const renderChart = () => {
   const donutChart = document.querySelector('.donut-chart');
@@ -71,11 +71,11 @@ const renderChart = () => {
   new Chart(donutChart, {
     type: 'doughnut',
     data: {
-      labels: Array.from(houseLabels.keys()),
+      labels: Array.from(Object.keys(houseLabels)),
       datasets: [
         {
           label: 'GoT Houses',
-          data: Array.from(houseLabels.values()),
+          data: Array.from(Object.values(houseLabels)),
           backgroundColor: backgroundColors,
           borderColor: borderColors,
           borderWidth: 1,
