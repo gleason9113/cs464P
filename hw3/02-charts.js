@@ -48,13 +48,11 @@ let houses = []
 fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         data.forEach(character => {
           if(!houses.includes(character.family)) {
             houses.push(character.family);
           }
         })
-        console.log(houses);
         for(let i = 0; i < houses.length; i++){
           const toMatch = houses[i];
           for (let key in houseLabels) {
